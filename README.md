@@ -14,7 +14,10 @@ Disusun oleh :
 - [Dokumentasi Output yang Dihasilkan]()
 
 ## [Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
-- [Penyelesaian Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
+- [Penyelesaian Soal 3A]()
+- [Penyelesaian Soal 3B]()
+- [Penyelesaian Soal 3C]()
+- [Penyelesaian Soal 3D]()
 - [Dokumentasi Output yang Dihasilkan](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-3)
 
 # Soal 1 - Crontab dalam Program C untuk Menjalankan Bash
@@ -153,6 +156,16 @@ int main(void) {
 ```
 ## Penyelesaian Soal 3
 ```
+#include <stdio.h>
+#include <stdlib.h>
+#include <wait.h>
+#include <unistd.h>
+#include <string.h>
+#include <syslog.h>
+#include <dirent.h>
+```
+- Diatas merupakan ***library*** yang digunakan untuk menunjang dan menjalankan program.
+```
   int main(void) {
   pid_t anak_1, anak_2, anak_3, anak_4, anak_5, anak_6;
   int status;
@@ -165,6 +178,8 @@ anak_1 = fork();
   }
 ```
 - ***anak_1*** dihasilkan oleh proses fork. Kemudian jika nilai ***PID*** dari anak lebih kecil dari 0, maka proses gagal dan keluar. ***(Proses ini berlaku pada semua transisi dari proses anak 1 ke proses anak setelahnya)***
+
+## 3A - Membuat Direktori Indomie dan Sedaap
 ```
   if(anak_1==0) {
     char *argv[]={"mkdir", "-p", "indomie", NULL};
@@ -184,6 +199,8 @@ if(anak_2==0) {
  }
 ```
 - Jika ***PID*** proses ***anak_2*** bernilai sama dengan 0, maka proses dijalankan. `sleep(5);` berfungsi untuk memberikan ***delay*** selama 5 detik sebagai transisi dari proses 1 ke proses 2 sesuai dengan permintaan soal. `char *argv[]={"mkdir", "-p", "sedaap", NULL};` berfungsi untuk membuat direktori ***sedaap*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
+
+## 3B - Meng-ekstrak File "jpg.zip"
 ```
 if(anak_3==0) {
     char *argv[]={"unzip", "-q", "jpg.zip", NULL};
@@ -191,6 +208,8 @@ if(anak_3==0) {
  }
 ```
 - Jika ***PID*** proses ***anak_3*** bernilai sama dengan 0, maka proses dijalankan. `char *argv[]={"unzip", "-q", "jpg.zip", NULL};` berfungsi untuk meng-ekstrak file ***jpg.zip*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
+
+## 3C - Memisahkan Hasil Ekstrak Sesuai dengan Pengelompokan (File >> Sedaap | Direktori >> Indomie)
 ```
 if(anak_4==0) {
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-type", "f", "-name", "*", "-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/sedaap", "{}", "+", (char *) NULL);
@@ -210,6 +229,8 @@ if(anak_6==0) {
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*", "-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);
   }
 ```
+
+## 3D - Membuat File coba1.txt dan coba2.txt di Semua Direktori Hasil Esktrak yang Ada di Indomie  
 - Jika ***PID*** proses ***anak_6*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba1.txt*** di semua direktori yang ada.
 ```
   else {
