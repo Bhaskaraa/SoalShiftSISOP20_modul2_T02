@@ -71,14 +71,14 @@ Kiwa merasa telah jago dalam materi Sistem Operasi sehingga ia membuat beberapa 
 ***b.*** Lalu tiap folder diisi dengan 20 gambar yang diunduh dari [https://picsum.photos/] dimana tiap gambar diunduh setiap 5 detik. Tiap gambar berbentuk persegi dengan ukuran (t%1000)+100 piksel dimana t adalah detik Epoch Unix. Kemudian, gambar tersebut diberi nama dengan format timestamp [YYYYmm-dd_HH:ii:ss]. \
 ***c.*** Agar rapi, setelah sebuah folder telah terisi oleh 20 gambar, folder akan di zip dan folder akan di delete(sehingga hanya menyisakan .zip). \
 ***d.*** Men-***generate*** sebuah program ***killer*** yang siap dijalankan untuk menterminasi semua operasi program tersebut. Setelah dijalankan, program killer yang menterminasi akan menghapus dirinya sendiri. \
-***e.*** Kiwa menambahkan bahwa program utama bisa dirun dalam dua mode, yaitu MODE_A dan MODE_B. untuk mengaktifkan MODE_A, program harus dijalankan dengan argumen -a. Untuk MODE_B, program harus dijalankan dengan argumen -b. Ketika dijalankan dalam MODE_A, program utama akan langsung menghentikan semua operasinya ketika program killer dijalankan. Untuk MODE_B, ketika program killer dijalankan, program utama akan berhenti tapi membiarkan proses di setiap folder yang masih berjalan sampai selesai(semua folder terisi gambar, terzip lalu di delete). \
+***e.*** Kiwa menambahkan bahwa program utama bisa dirun dalam dua mode, yaitu MODE_A dan MODE_B. untuk mengaktifkan MODE_A, program harus dijalankan dengan argumen -a. Untuk MODE_B, program harus dijalankan dengan argumen -b. Ketika dijalankan dalam MODE_A, program utama akan langsung menghentikan semua operasinya ketika program killer dijalankan. Untuk MODE_B, ketika program killer dijalankan, program utama akan berhenti tapi membiarkan proses di setiap folder yang masih berjalan sampai selesai(semua folder terisi gambar, terzip lalu di delete). 
 
 Catatan yang diberikan :
-- tidak boleh menggunakan system() \
+- tidak boleh menggunakan system() 
 - Program utama harus ter-***detach*** dari terminal 
 
 Hint yang diberikan :
-- Gunakan fitur picsum.photos untuk mendapatkan gambar dengan ukuran tertentu \
+- Gunakan fitur picsum.photos untuk mendapatkan gambar dengan ukuran tertentu 
 - Epoch Unix bisa didapatkan dari time() 
 
 File penyelesaian soal ini dapat dilihat link berikut : [Source Code]()
