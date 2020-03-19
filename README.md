@@ -22,7 +22,7 @@ Disusun oleh :
 ## [Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
 - [Penyelesaian Soal 3A](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#3a---membuat-direktori-indomie-dan-sedaap)
 - [Penyelesaian Soal 3B](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#3b---meng-ekstrak-file-jpgzip)
-- [Dokumentasi Output yang Dihasilkan 3A dan 3B]()
+- [Dokumentasi Output yang Dihasilkan 3A dan 3B](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-3a-dan-3b)
 - [Penyelesaian Soal 3C](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#3c---memisahkan-hasil-ekstrak-sesuai-dengan-pengelompokan-file--sedaap--direktori--indomie)
 - [Dokumentasi Output yang Dihasilkan 3C](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-3c)
 - [Penyelesaian Soal 3D](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#3d---membuat-file-coba1txt-dan-coba2txt-di-semua-direktori-hasil-esktrak-yang-ada-di-indomie)
@@ -52,11 +52,34 @@ Untuk menyelesaikan persoalan nomor 1, kami menggunakan syntax code sebagai beri
 ```
 ## Penyelesaian Soal 1
 
+## Isi folder.sh
+```
+#!bin/bash
+
+mkdir anakonda
+```
+- Script bash ***folder.sh*** berisikan perintah untuk membuat direktori bernama ***anakonda***.
+
 ## Dokumentasi Penyelesaian Soal 1
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/1.png)
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/2.png)
 
-# Soal 2 -
+# Soal 2 - 
+Kiwa merasa telah jago dalam materi Sistem Operasi sehingga ia membuat beberapa program sebagai berikut.
+
+***a.*** Membuat folder khusus yang didalamnya memuat program C yang per 30 detik membuat sebuah folder dengan nama timestamp  [YYYY-mm-dd_HH:ii:ss]. \
+***b.*** Lalu tiap folder diisi dengan 20 gambar yang diunduh dari [https://picsum.photos/] dimana tiap gambar diunduh setiap 5 detik. Tiap gambar berbentuk persegi dengan ukuran (t%1000)+100 piksel dimana t adalah detik Epoch Unix. Kemudian, gambar tersebut diberi nama dengan format timestamp [YYYYmm-dd_HH:ii:ss]. \
+***c.*** Agar rapi, setelah sebuah folder telah terisi oleh 20 gambar, folder akan di zip dan folder akan di delete(sehingga hanya menyisakan .zip). \
+***d.*** Men-***generate*** sebuah program ***killer*** yang siap dijalankan untuk menterminasi semua operasi program tersebut. Setelah dijalankan, program killer yang menterminasi akan menghapus dirinya sendiri. \
+***e.*** Kiwa menambahkan bahwa program utama bisa dirun dalam dua mode, yaitu MODE_A dan MODE_B. untuk mengaktifkan MODE_A, program harus dijalankan dengan argumen -a. Untuk MODE_B, program harus dijalankan dengan argumen -b. Ketika dijalankan dalam MODE_A, program utama akan langsung menghentikan semua operasinya ketika program killer dijalankan. Untuk MODE_B, ketika program killer dijalankan, program utama akan berhenti tapi membiarkan proses di setiap folder yang masih berjalan sampai selesai(semua folder terisi gambar, terzip lalu di delete). \
+
+Catatan yang diberikan :
+- tidak boleh menggunakan system() \
+- Program utama harus ter-***detach*** dari terminal 
+
+Hint yang diberikan :
+- Gunakan fitur picsum.photos untuk mendapatkan gambar dengan ukuran tertentu \
+- Epoch Unix bisa didapatkan dari time() 
 
 File penyelesaian soal ini dapat dilihat link berikut : [Source Code]()
 
