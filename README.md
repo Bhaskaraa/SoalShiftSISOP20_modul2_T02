@@ -20,13 +20,13 @@ Disusun oleh :
 - [Dokumentasi Output yang Dihasilkan 2D]()
 
 ## [Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
-- [Penyelesaian Soal 3A]()
-- [Dokumentasi Output yang Dihasilkan 3A]()
-- [Penyelesaian Soal 3B]()
-- [Penyelesaian Soal 3C]()
-- [Dokumentasi Output yang Dihasilkan 3C]()
-- [Penyelesaian Soal 3D]()
-- [Dokumentasi Output yang Dihasilkan 3D]()
+- [Penyelesaian Soal 3A](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#3a---membuat-direktori-indomie-dan-sedaap)
+- [Penyelesaian Soal 3B](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#3b---meng-ekstrak-file-jpgzip)
+- [Dokumentasi Output yang Dihasilkan 3A dan 3B]()
+- [Penyelesaian Soal 3C](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#3c---memisahkan-hasil-ekstrak-sesuai-dengan-pengelompokan-file--sedaap--direktori--indomie)
+- [Dokumentasi Output yang Dihasilkan 3C](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-3c)
+- [Penyelesaian Soal 3D](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#3d---membuat-file-coba1txt-dan-coba2txt-di-semua-direktori-hasil-esktrak-yang-ada-di-indomie)
+- [Dokumentasi Output yang Dihasilkan 3D](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-3d)
 
 # Soal 1 - Crontab dalam Program C untuk Menjalankan Bash
 Buatlah program C menyerupai crontab dengan ketentuan sebagai berikut. 
@@ -210,9 +210,6 @@ if(anak_2==0) {
 ```
 - Jika ***PID*** proses ***anak_2*** bernilai sama dengan 0, maka proses dijalankan. `sleep(5);` berfungsi untuk memberikan ***delay*** selama 5 detik sebagai transisi dari proses 1 ke proses 2 sesuai dengan permintaan soal. `char *argv[]={"mkdir", "-p", "sedaap", NULL};` berfungsi untuk membuat direktori ***sedaap*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
 
-## Dokumentasi Penyelesaian Soal 3A
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/1.png)
-
 ## 3B - Meng-ekstrak File "jpg.zip"
 ```
 if(anak_3==0) {
@@ -221,6 +218,9 @@ if(anak_3==0) {
  }
 ```
 - Jika ***PID*** proses ***anak_3*** bernilai sama dengan 0, maka proses dijalankan. `char *argv[]={"unzip", "-q", "jpg.zip", NULL};` berfungsi untuk meng-ekstrak file ***jpg.zip*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
+
+## Dokumentasi Penyelesaian Soal 3A dan 3B
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/1.png)
 
 ## 3C - Memisahkan Hasil Ekstrak Sesuai dengan Pengelompokan (File >> Sedaap | Direktori >> Indomie)
 ```
