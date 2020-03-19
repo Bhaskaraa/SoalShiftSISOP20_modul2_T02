@@ -35,8 +35,16 @@ Contoh argumen input : ./program \* 34 7 /home/somi/test.sh (script bash test.sh
 File penyelesaian soal ini dapat dilihat link berikut : [Source Code]()
 
 Untuk menyelesaikan persoalan nomor 1, kami menggunakan syntax code sebagai berikut.
+```
+```
+## Penyelesaian Soal 1
+
+## Dokumentasi Penyelesaian Soal 1
 
 # Soal 2 -
+
+## Penyelesaian Soal 2
+## Dokumentasi Penyelesaian Soal 2
 
 # Soal 3 - Proses Fork dalam Program C untuk Permasalahan Multiprocessing
 Suatu hari jaya mendapat tugas yang banyak dengan rincian sebagai berikut.
@@ -135,7 +143,7 @@ int main(void) {
   }
 }
 ```
-## Penyelesaian Soal Nomor 3
+## Penyelesaian Soal 3
 ```
   int main(void) {
   pid_t anak_1, anak_2, anak_3, anak_4, anak_5, anak_6;
