@@ -6,8 +6,8 @@ Disusun oleh :
 
 # Daftar Isi
 ## [Soal 1](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-1---crontab-dalam-program-c-untuk-menjalankan-bash)
-- [Penyelesaian Soal 1]()
-- [Dokumentasi Output yang Dihasilkan]()
+- [Penyelesaian Soal 1](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#penyelesaian-soal-1)
+- [Dokumentasi Output yang Dihasilkan](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-1)
 
 ## [Soal 2]()
 - [Penyelesaian Soal 2]()
@@ -15,7 +15,7 @@ Disusun oleh :
 
 ## [Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
 - [Penyelesaian Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
-- [Dokumentasi Output yang Dihasilkan]()
+- [Dokumentasi Output yang Dihasilkan](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-3)
 
 # Soal 1 - Crontab dalam Program C untuk Menjalankan Bash
 Buatlah program C menyerupai crontab dengan ketentuan sebagai berikut. 
