@@ -5,6 +5,17 @@ Disusun oleh :
 - Azmi (05311840000047)
 
 # Daftar Isi
+## [Soal 1]()
+- [Penyelesaian Soal 1]()
+- [Dokumentasi Output yang Dihasilkan]()
+
+## [Soal 2]()
+- [Penyelesaian Soal 2]()
+- [Dokumentasi Output yang Dihasilkan]()
+
+## [Soal 3]()
+- [Penyelesaian Soal 3]()
+- [Dokumentasi Output yang Dihasilkan]()
 
 # Soal 1 - Crontab dalam Program C untuk Menjalankan Bash
 Buatlah program C menyerupai crontab dengan ketentuan sebagai berikut. 
@@ -124,7 +135,8 @@ int main(void) {
   }
 }
 ```
-
+### Penyelesaian Soal Nomor 3
+- 
 
 ## Kendala yang Dialami
 ***1.*** Banyak tugas yang lain yang membebani sehingga tidak fokus dalam mengerjakan soal shift. \
