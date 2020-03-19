@@ -40,21 +40,29 @@ Untuk menyelesaikan persoalan nomor 1, kami menggunakan syntax code sebagai beri
 ## Penyelesaian Soal 1
 
 ## Dokumentasi Penyelesaian Soal 1
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/1.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/2.png)
 
 # Soal 2 -
 
+File penyelesaian soal ini dapat dilihat link berikut : [Source Code]()
+
+Untuk menyelesaikan persoalan nomor 2, kami menggunakan syntax code sebagai berikut.
+```
+```
 ## Penyelesaian Soal 2
+
 ## Dokumentasi Penyelesaian Soal 2
 
 # Soal 3 - Proses Fork dalam Program C untuk Permasalahan Multiprocessing
-Suatu hari jaya mendapat tugas yang banyak dengan rincian sebagai berikut.
+Suatu hari Jaya mendapat tugas yang banyak dengan rincian sebagai berikut.
 
 ***a.*** Jaya harus membuat program untuk membuat 2 direktori di ***/home/[user]/modul2***. Direktori yang pertama bernama ***"Indomie"*** dan 5 detik kemudian membuat direktori baru dengan nama ***"sedaap"***. \
 ***b.*** Kemudian meng-ekstrak file ***"jpg.zip"*** yang berada di ***/home/[user]/modul2***. \
 ***c.*** Kemudia hasil ekstrak dipindahkan sesuai dengan pengelompokan, jika bertipe file dipindah ke ***/home/[user]/modul2/sedaap*** sedangkan jika bertipe direktori dipindahkan ke ***/home/[user]/modul2/indomie***. \
 ***d.*** Untuk setiap direktori yang dipindah ke ***/home/[user]/modul2/indomie*** dibuatkan masing-masing 2 file kosong. File pertama diberi nama ***"coba1.txt"*** dan setelah 3 detik file kedua dibuat dengan nama ***"coba2.txt"***. 
 
-Karena terlalu banyak masalah yang harus diselesaikan, mari bantu jaya agar tugasnya cepat selesai.
+Karena terlalu banyak masalah yang harus diselesaikan, mari bantu Jaya agar tugasnya cepat selesai.
 
 File penyelesaian soal ini dapat dilihat link berikut : [Source Code](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/3/soal3.c)
 
@@ -149,13 +157,15 @@ int main(void) {
   pid_t anak_1, anak_2, anak_3, anak_4, anak_5, anak_6;
   int status;
 ```
-- 
+- Fungsi diatas merupakan fungsi utama dari program. ` pid_t anak_1, anak_2, anak_3, anak_4, anak_5, anak_6;` berfungsi untuk menyimpan PID ***(Parent ID)*** di masing-masing variabel child. `int status` berfungsi untuk deklarasi variabel status bertipe ***integer***.
 ```
 anak_1 = fork();
   if(anak_1 < 0){
     exit(EXIT_FAILURE);
   }
-
+```
+- ***anak_1*** dihasilkan oleh proses fork. Kemudian jika nilai ***PID*** dari anak lebih kecil dari 0, maka proses gagal dan keluar. ***(Proses ini berlaku pada semua transisi dari proses anak 1 ke proses anak setelahnya)***
+```
   if(anak_1==0) {
     char *argv[]={"mkdir", "-p", "indomie", NULL};
     execv("/bin/mkdir", argv);
@@ -165,7 +175,7 @@ anak_1 = fork();
     anak_2 = fork();
  }
 ```
-- 
+- Jika nilai ***PID*** sama dengan , proses berjalan. `char *argv[]={"mkdir", "-p", "indomie", NULL};` berfungsi untuk membuat direktori ***indomie*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi ***argv***. Fungsi `while((wait(&status)) > 0);` berfungsi sebagai ***delay*** untuk menunggu proses ***anak_1** selesai terlebih dahulu, setelah itu menjalankan proses ***anak_2***. 
 ```
 if(anak_2==0) {
     sleep(5);
@@ -173,39 +183,42 @@ if(anak_2==0) {
     execv("/bin/mkdir", argv);
  }
 ```
--
+- Jika ***PID*** proses ***anak_2*** bernilai sama dengan 0, maka proses dijalankan. `sleep(5);` berfungsi untuk memberikan ***delay*** selama 5 detik sebagai transisi dari proses 1 ke proses 2 sesuai dengan permintaan soal. `char *argv[]={"mkdir", "-p", "sedaap", NULL};` berfungsi untuk membuat direktori ***sedaap*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
 ```
 if(anak_3==0) {
     char *argv[]={"unzip", "-q", "jpg.zip", NULL};
     execv("/usr/bin/unzip", argv);
  }
 ```
--
+- Jika ***PID*** proses ***anak_3*** bernilai sama dengan 0, maka proses dijalankan. `char *argv[]={"unzip", "-q", "jpg.zip", NULL};` berfungsi untuk meng-ekstrak file ***jpg.zip*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
 ```
 if(anak_4==0) {
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-type", "f", "-name", "*", "-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/sedaap", "{}", "+", (char *) NULL);
   }
 ```
--
+- Jika ***PID*** proses ***anak_4*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-type", "f", "-name", "*"` berfungsi untuk mencari semua yang bertipe file dengan semua nama di direktori ***/home/bhaskarajd/Modul2/3/jpg*** dan `"-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/sedaap", "{}", "+", (char *) NULL);` berfungsi untuk memindahkannya ke direktori ***/home/bhaskarajd/Modul2/3/sedaap***.
 ```
 if(anak_5==0) {
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-mindepth", "1", "-type", "d", "-name", "*", "-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/indomie", "{}", "+", (char *) NULL);
   }
 ```
--
+- Sama seperti proses sebelumnya, jika ***PID*** proses ***anak_5*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dengan semua nama di ***/home/bhaskarajd/Modul2/3/jpg*** dan `"-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/indomie", "{}", "+", (char *) NULL);` berfungsi untuk memindahkannya ke direktori ***/home/bhaskarajd/Modul2/3/indomie***.
 ```
 if(anak_6==0) {
     char *argv[] = {"touch", "/home/bhaskarajd/Modul2/3/indomie/%s/coba1.txt", NULL};
     //execv("/usr/bin/touch", argv);
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*", "-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);
   }
+```
+- Jika ***PID*** proses ***anak_6*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba1.txt*** di semua direktori yang ada.
+```
   else {
     while((wait(&status))>0);
     sleep(3);
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*", "-exec", "sh", "-c", "for d; do touch $d/coba2.txt; done", "{}", "+", (char *) NULL);
   }
 ```
--
+- `sleep(3);` berfungsi sebagai ***delay*** selama 3 detik sesuai dengan permintaan soal. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba2.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba2.txt*** di semua direktori yang ada.
 
 ## Dokumentasi Penyelesaian Soal 3
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/1.png)
@@ -215,6 +228,8 @@ if(anak_6==0) {
 
 ## Kendala yang Dialami
 ***1.*** Banyak tugas yang lain yang membebani sehingga tidak fokus dalam mengerjakan soal shift. \
-***2.*** Bobot soal shift yany sulit terutama soal nomor 2 sehingga penulis diharuskan untuk mencari banyak referensi agar bisa menjawab soal. \
+***2.*** Bobot soal shift yang sulit terutama soal nomor 2 sehingga penulis diharuskan untuk mencari banyak referensi agar bisa menjawab soal. \
 ***3.*** Penulis masih menyesuaikan diri dengan sistem operasi LINUX/Ubuntu sehingga ada beberapa kendala dalam menggunakan terminal. \
-***4.*** Penulis masih menyesuaikan menggunakan program C dalam linux sehingga beberapa command baru susah untuk dimengerti.
+***4.*** Penulis masih menyesuaikan menggunakan program C dalam linux sehingga beberapa command baru susah untuk dimengerti. \
+***5.*** Sistem demo online sedikit rumit untuk dilakukan. \
+***6.*** Karena disarankan untuk tidak keluar rumah dampak dari Covid-19, agak sulit untuk berkoordinasi dengan anggota kelompok.
