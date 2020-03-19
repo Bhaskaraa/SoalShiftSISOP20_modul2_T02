@@ -10,30 +10,40 @@ Disusun oleh :
 - [Dokumentasi Output yang Dihasilkan](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-1)
 
 ## [Soal 2]()
-- [Penyelesaian Soal 2]()
-- [Dokumentasi Output yang Dihasilkan]()
+- [Penyelesaian Soal 2A]()
+- [Dokumentasi Output yang Dihasilkan 2A]()
+- [Penyelesaian Soal 2B]()
+- [Dokumentasi Output yang Dihasilkan 2B]()
+- [Penyelesaian Soal 2C]()
+- [Dokumentasi Output yang Dihasilkan 2C]()
+- [Penyelesaian Soal 2D]()
+- [Dokumentasi Output yang Dihasilkan 2D]()
 
 ## [Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
 - [Penyelesaian Soal 3A]()
+- [Dokumentasi Output yang Dihasilkan 3A]()
 - [Penyelesaian Soal 3B]()
 - [Penyelesaian Soal 3C]()
+- [Dokumentasi Output yang Dihasilkan 3C]()
 - [Penyelesaian Soal 3D]()
-- [Dokumentasi Output yang Dihasilkan](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-3)
+- [Dokumentasi Output yang Dihasilkan 3D]()
 
 # Soal 1 - Crontab dalam Program C untuk Menjalankan Bash
 Buatlah program C menyerupai crontab dengan ketentuan sebagai berikut. 
 
-***a.*** Program hanya menerima 4 jenis argumen yakni : \
-i. Detik : 0 - 59 atau * \
-ii. Menit : 0 - 59 atau * \
-iii. Jam   : 0 - 23 atau * \
-iv. Path file .sh \
+***a.*** Program hanya menerima 4 jenis argumen yakni : 
+```
+i. Detik : 0 - 59 atau * 
+ii. Menit : 0 - 59 atau * 
+iii. Jam   : 0 - 23 atau * 
+iv. Path file .sh 
+```
 ***b.*** Program akan eror jika argumen input tidak sesuai \
 ***c.*** Program hanya menerima 1 config cron \
 ***d.*** Program berjalan di background (daemon) \
 ***e.*** Tidak boleh menggunakan fungsi system()
 
-Contoh argumen input : ./program \* 34 7 /home/somi/test.sh (script bash test.sh akan dijalankan setiap jam 07.34 waktu lokal)
+Contoh argumen input : `./program \* 34 7 /home/somi/test.sh` (script bash test.sh akan dijalankan setiap jam 07.34 waktu lokal)
 
 File penyelesaian soal ini dapat dilihat link berikut : [Source Code]()
 
@@ -200,6 +210,9 @@ if(anak_2==0) {
 ```
 - Jika ***PID*** proses ***anak_2*** bernilai sama dengan 0, maka proses dijalankan. `sleep(5);` berfungsi untuk memberikan ***delay*** selama 5 detik sebagai transisi dari proses 1 ke proses 2 sesuai dengan permintaan soal. `char *argv[]={"mkdir", "-p", "sedaap", NULL};` berfungsi untuk membuat direktori ***sedaap*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
 
+## Dokumentasi Penyelesaian Soal 3A
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/1.png)
+
 ## 3B - Meng-ekstrak File "jpg.zip"
 ```
 if(anak_3==0) {
@@ -222,15 +235,19 @@ if(anak_5==0) {
   }
 ```
 - Sama seperti proses sebelumnya, jika ***PID*** proses ***anak_5*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dengan semua nama di ***/home/bhaskarajd/Modul2/3/jpg*** dan `"-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/indomie", "{}", "+", (char *) NULL);` berfungsi untuk memindahkannya ke direktori ***/home/bhaskarajd/Modul2/3/indomie***.
+
+## Dokumentasi Penyelesaian Soal 3C
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/4.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/2.png)
+
+## 3D - Membuat File coba1.txt dan coba2.txt di Semua Direktori Hasil Esktrak yang Ada di Indomie
 ```
 if(anak_6==0) {
     char *argv[] = {"touch", "/home/bhaskarajd/Modul2/3/indomie/%s/coba1.txt", NULL};
     //execv("/usr/bin/touch", argv);
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*", "-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);
   }
-```
-
-## 3D - Membuat File coba1.txt dan coba2.txt di Semua Direktori Hasil Esktrak yang Ada di Indomie  
+```  
 - Jika ***PID*** proses ***anak_6*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba1.txt*** di semua direktori yang ada.
 ```
   else {
@@ -241,10 +258,7 @@ if(anak_6==0) {
 ```
 - `sleep(3);` berfungsi sebagai ***delay*** selama 3 detik sesuai dengan permintaan soal. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba2.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba2.txt*** di semua direktori yang ada.
 
-## Dokumentasi Penyelesaian Soal 3
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/1.png)
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/4.png)
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/2.png)
+## Dokumentasi Penyelesaian Soal 3D
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/3.png)
 
 ## Kendala yang Dialami
