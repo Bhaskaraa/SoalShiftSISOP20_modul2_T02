@@ -6,6 +6,9 @@ Disusun oleh :
 
 # Daftar Isi
 
+# Soal 1 - Crontab dalam Program C untuk Menjalankan Bash
+Buatlah program C menyerupai crontab 
+
 ## Kendala yang Dialami
 ***1.*** Banyak tugas yang lain yang membebani sehingga tidak fokus dalam mengerjakan soal shift. \
 ***2.*** Bobot soal shift yany sulit terutama soal nomor 2 sehingga penulis diharuskan untuk mencari banyak referensi agar bisa menjawab soal. \
