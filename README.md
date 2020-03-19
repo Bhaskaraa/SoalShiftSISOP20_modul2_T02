@@ -5,7 +5,7 @@ Disusun oleh :
 - Azmi (05311840000047)
 
 # Daftar Isi
-## [Soal 1]()
+## [Soal 1](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-1---crontab-dalam-program-c-untuk-menjalankan-bash)
 - [Penyelesaian Soal 1]()
 - [Dokumentasi Output yang Dihasilkan]()
 
@@ -13,8 +13,8 @@ Disusun oleh :
 - [Penyelesaian Soal 2]()
 - [Dokumentasi Output yang Dihasilkan]()
 
-## [Soal 3]()
-- [Penyelesaian Soal 3]()
+## [Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
+- [Penyelesaian Soal 3](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-3---proses-fork-dalam-program-c-untuk-permasalahan-multiprocessing)
 - [Dokumentasi Output yang Dihasilkan]()
 
 # Soal 1 - Crontab dalam Program C untuk Menjalankan Bash
@@ -199,6 +199,11 @@ if(anak_6==0) {
 ```
 -
 
+## Dokumentasi Penyelesaian Soal 3
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/1.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/4.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/2.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/3.png)
 
 ## Kendala yang Dialami
 ***1.*** Banyak tugas yang lain yang membebani sehingga tidak fokus dalam mengerjakan soal shift. \
