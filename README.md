@@ -150,8 +150,8 @@ while (1) {
    tm = time(NULL);
    t = *localtime(&tm);
 ```
-- Variabel `tm` berfungsi untuk menyimpan ***timestamp*** dalam format ***epoch/unix timestamp***.
-- variabel `t` berfungsi untuk menyimpan ***timestamp*** yang sesuai dengan waktu lokal dari perangkat.
+- Variabel `tm = time(NULL)` berfungsi untuk menyimpan ***timestamp*** dalam waktu saat ini dan formatnya juga perlu diubah ke format yang lebih standar.
+- variabel `t` berfungsi untuk menyimpan ***timestamp*** yang sesuai dengan waktu lokal dari perangkat (fungsi ***localtime***).
 ```
 a = atoi(argv[3]);
 b = atoi(argv[2]);
@@ -264,7 +264,7 @@ anak_1 = fork();
 ```
 - Jika nilai ***PID*** sama dengan , proses berjalan. `char *argv[]={"mkdir", "-p", "indomie", NULL};` berfungsi untuk membuat direktori ***indomie*** dan perintah tersebut disimpan dalam variabel ***argv***. 
 - `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi ***argv***. 
-- `while((wait(&status)) > 0);` berfungsi sebagai ***delay*** untuk menunggu proses ***anak_1** selesai terlebih dahulu, setelah itu menjalankan proses ***anak_2***. 
+- `while((wait(&status)) > 0);` berfungsi sebagai ***delay*** untuk menunggu proses ***anak_1*** selesai terlebih dahulu, setelah itu menjalankan proses ***anak_2***. 
 ```
 if(anak_2==0) {
     sleep(5);
