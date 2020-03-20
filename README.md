@@ -191,7 +191,7 @@ mkdir anakonda
 ## Dokumentasi jika Input Salah
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/3.png)
 
-# Soal 2 - 
+# Soal 2 - Kiwa, Shisooppu Mantappu!
 Kiwa merasa telah jago dalam materi Sistem Operasi sehingga ia membuat beberapa program sebagai berikut.
 
 ***a.*** Membuat folder khusus yang didalamnya memuat program C yang per 30 detik membuat sebuah folder dengan nama timestamp  [YYYY-mm-dd_HH:ii:ss]. \
@@ -212,7 +212,6 @@ File penyelesaian soal ini dapat dilihat link berikut : [Source Code](https://gi
 
 ## Penyelesaian Soal 2
 ```
-
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -222,32 +221,33 @@ File penyelesaian soal ini dapat dilihat link berikut : [Source Code](https://gi
 #include <string.h>
 ```
 - Diatas merupakan ***library*** yang digunakan untuk menunjang dan menjalankan program.
+
+##2A - Membuat Folder Khusus dan Folder Timestamp
 ```
 int main() {
 	pid_t anak_1, anak_2, anak_3;
 	int status;
 	anak_1 = fork();
 ```
-- `pid_t anak_1, anak_2, anak_3`
-- `int status`
-- `anak_1 = fork()`
+- `pid_t anak_1, anak_2, anak_3` berfungsi untuk menyimpan ***PID*** dalam masing-masing variabel proses anak.
+- `int status` berfungsi untuk mendeklarasikan variabel ***status*** bertipe `integer`.
+- `anak_1 = fork()` = Variabel proses fork disimpan di variabel ***anak_1***.
 ```
 if (anak_1 < 0) {
 exit(EXIT_FAILURE);
 	}
 ```
-- 
+- Jika nilai ***PID anak_1*** kurang dari 0 maka proses gagal dan keluar. ***(Proses ini berlaku pada semua transisi dari proses anak 1 ke proses anak setelahnya)***
 ```
 if (anak_1 == 0) {
 		char *argv[] = {"mkdir", "-p", "khusus", NULL};
 	  	execv("/bin/mkdir", argv);
 	}
 ```
-- `(anak_1 == 0)`
-- `char *argv[] = {"mkdir", "-p", "khusus", NULL}`
-- `execv("/bin/mkdir", argv)`
+- `char *argv[] = {"mkdir", "-p", "khusus", NULL}` berfungsi untuk membuat folder dengan nama ***"khusus"***.
+- `execv("/bin/mkdir", argv)` berfungsi untuk menjalankan fungsi ***argv***.
 ```
-char str[50], url[100], file[100], save[100];
+char str[50], url[50], file[50], save[100];
 	int a;
 	time_t t, w;
 	t = time(NULL);
@@ -255,20 +255,26 @@ char str[50], url[100], file[100], save[100];
 	tm = localtime(&t);
 	strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", tm);
 ```
-- `char str[50], url[100], file[100], save[100]`
-- `time_t t, w`
-- `t = time(NULL)`
-- `struct tm *tm, *wm`
-- `tm = localtime(&t)`
-- `strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", tm)`
+- `char str[50], url[50], file[50], save[100]` berfungsi untuk mendeklarasikan panjang string. `str[50]` artinya panjang string folder 50 karakter. `url[50]` artinya panjang url maksimal 50 karakter. `file[50]` panjang string nama file maksimal 50 karakter. Dan `save[100]` gabungan nama file dan folder, 
+- `time_t t, w` berfungsi untuk mendeklarasikan variabel `t dan w` bertipe `time_t`.
+- `t = time(NULL)` artinya variabel `t` menyimpan waktu saat ini dengan format yang standar.
+- `struct tm *tm, *wm` untuk membuat variabel `tm dan wm` yang bertipe ***struct***.
+- `tm = localtime(&t)` berfungsi untuk menyimpan dan menyesuaikan waktu lokal perangkat ***(fungsi localtime)*** dalam variabel `tm`.
+- `strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", tm)` berfungsi untuk melakukan formating nama folder sesuai dengan perintah soal.
 ```
 if (anak_2== 0) {
 		char *argv[] = {"mkdir", "-p", str, NULL};
 	  	execv("/bin/mkdir", argv);
 	}
 ```
-- `char *argv[] = {"mkdir", "-p", str, NULL}`
-- `execv("/bin/mkdir", argv)`
+- `char *argv[] = {"mkdir", "-p", str, NULL}` berfungsi untuk membuat folder dengan nama ***timestamp*** sesuai perintah soal.
+- `execv("/bin/mkdir", argv)` berfungsi untuk menjalankan perintah yang ada dalam variabel ***argv***.
+
+## Dokumentasi Penyelesaian Soal 2A
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/1.png) \
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/2.png) 
+
+## 2B - Mengunduh Gambar dan Mengisi Folder Timestamp
 ```
 int i;
 	for (i=0;i<20;i++) {
@@ -284,21 +290,20 @@ int i;
 		if (fork()==0) execv("/usr/bin/wget", args);
 		sleep(1);
 ```
-- `for (i=0;i<20;i++)`
-- `w = time(NULL)`
-- `wm = localtime(&w)`
-- `a = (w%1000)+100`
-- `sprintf (url, "https://picsum.photos/%d", a)`
-- `strftime(file, 50, "%Y-%m-%d_%H:%M:%S", wm)`
-- `sprintf (save, "%s/%s", str, file)`
-- `char *args[] = {"wget", "-O", save, url, NULL}`
-- `strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", wm)`
-- `if (fork()==0) execv("/usr/bin/wget", args)`
+- `for (i=0;i<20;i++)` berfungsi untuk membatasi jumlah gambar yang diunduh agar tidak lebih dari 20 gambar.
+- `a = (w%1000)+100` berfungsi untuk mengatur ukuran pixel gambar.
+- `sprintf (url, "https://picsum.photos/%d", a)` berfungsi untuk mengarahkan ke url tempat mengunduh gambar.
+- `strftime(file, 50, "%Y-%m-%d_%H:%M:%S", wm)` berfungsi untuk memberi format ***timestamp*** pada foto sesuai dengan perintah soal.
+- `sprintf (save, "%s/%s", str, file)` berfungsi untuk memberi nama pada foto yang diunduh dengan format yang telah diberikan.
+- `char *args[] = {"wget", "-O", save, url, NULL}` berfungsi untuk memasukkan foto ke dalam folder yang telah ada ***(folder timestamp)***.
+- `if (fork()==0) execv("/usr/bin/wget", args)` berfungsi untuk menjalan fungsi yang ada dalam ***args***.
 
-## Dokumentasi Penyelesaian Soal 2
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/1.png) \
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/2.png) \
+## Dokumentasi Penyelesaian Soal 2B
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/3.png) 
+
+```
+Mas, jadi kami sudah menyerah karena soalnya tidak bisa kami hadapi, terlalu shisoopuu mantapuu :")
+```
 
 # Soal 3 - Proses Fork dalam Program C untuk Permasalahan Multiprocessing
 Suatu hari Jaya mendapat tugas yang banyak dengan rincian sebagai berikut.
