@@ -163,69 +163,90 @@ if (!(*argv[1] == '*' || (atoi(argv[1]) >= 0 && atoi(argv[1]) <= 59))) {
   }
 ```
 - `*argv[1] == '*'` berfungsi untuk mengecek input berupa ***"*"*** yang berarti semua variabel.
-- `(atoi(argv[1]) >= 0 && atoi(argv[1]) <= 59)` berfungsi untuk mengecek apakah 
+- `(atoi(argv[1]) >= 0 && atoi(argv[1]) <= 59)` berfungsi untuk mengecek apakah `argv[1]` bernilai antara 0 - 59.
+- Jika tidak memenuhi, output yang dihasilkan adalah ***"Input Argumen Salah"***.
 ```
 if (!(*argv[2] == '*' || (atoi(argv[2]) >= 0 && atoi(argv[2]) <= 59))) {
     printf("Input Argumen Salah\n");
     return 1;
   }
 ```
--
+- `*argv[2] == '*'` berfungsi untuk mengecek input berupa ***"*"*** yang berarti semua variabel.
+- `(atoi(argv[2]) >= 0 && atoi(argv[2]) <= 59)` berfungsi untuk mengecek apakah `argv[2]` bernilai antara 0 - 59.
+- Jika tidak memenuhi, output yang dihasilkan adalah ***"Input Argumen Salah"***.
 ```
 if (!(*argv[3] == '*' || (atoi(argv[3]) >= 0 && atoi(argv[3]) <= 23))) {
     printf("Input Argumen Salah\n");
     return 1;
   }
 ```
--
+- `*argv[3] == '*'` berfungsi untuk mengecek input berupa ***"*"*** yang berarti semua variabel.
+- `(atoi(argv[3]) >= 0 && atoi(argv[3]) <= 59)` berfungsi untuk mengecek apakah `argv[1]` bernilai antara 0 - 59.
+- Jika tidak memenuhi, output yang dihasilkan adalah ***"Input Argumen Salah"***.
 ```
 if (access(argv[4], F_OK) == -1) {
     printf("Input File tidak ada\n");
     return 1;
   }
 ```
--
+- `(access(argv[4], F_OK) == -1)` berfungsi untuk mengecek apakah script bash yang akan dijalankan tersedia dalam direktori atau tidak.
+- Jika tidak ada, output yang dihasilkan adalah ***"Input File tidak ada"***.
 ```
 struct tm t;
   time_t tm;
-
   pid_t pid, sid;       
   pid = fork();
 ```
--
+- `struct tm t`, deklarasi variabel `t` merupakan ***struct*** bertipe tm dimana masih berbentuk ***epoch/unix timsptamp***.
+- `time_t tm` untuk mendeklarasikan variabel `tm` bertipe `tm_t`.
+- `pid_t pid, sid` berfungsi untuk menyimpan ***PID***.
+- `pid = fork()` berfungsi untuk menyimpan ***PID*** dari proses anak.
 ```
 if (pid < 0) {
     exit(EXIT_FAILURE);
   }
+```
+- Keluar saat fork gagal `(pid < 0) `.
+```
 if (pid > 0) {
     exit(EXIT_SUCCESS);
   }
 ```
--
+- Keluar saat fork berhasil `(pid > 0) `.
 ```
   umask(0);
+```
+- ***command*** diatas berfungsi untuk mendapatkan hak akses penuh atas file yang dibuat oleh daemon.
+```
   sid = setsid();
   if (sid < 0) {
     exit(EXIT_FAILURE);
   }
+```
+- ***Source Code*** diatas berfungsi untuk mendapatkan ***Session ID*** agar proses anak dapat berjalan.
+```
   close(STDIN_FILENO);
   close(STDOUT_FILENO);
   close(STDERR_FILENO);
 ```
--
+- ***Source Code*** diatas berfungsi untuk menutup file descriptor standar karena daemon tidak boleh menggunkan terminal.
 ```
 while (1) {
    int a, b, c;
    tm = time(NULL);
    t = *localtime(&tm);
 ```
--
+- Variabel `tm` berfungsi untuk menyimpan ***timestamp*** dalam format ***epoch/unix timestamp***.
+- variabel `t` berfungsi untuk menyimpan ***timestamp*** yang sesuai dengan waktu lokal dari perangkat.
 ```
 a = atoi(argv[3]);
 b = atoi(argv[2]);
 c = atoi(argv[1]);
 ```
--
+- Variabel `a` memiliki nilai yang sama dengan `argv[3]`.
+- Variabel `b` memiliki nilai yang sama dengan `argv[2]`.
+- Variabel `c` memiliki nilai yang sama dengan `argv[1]`.
+
 ```
 if ((t.tm_sec == atoi(argv[1])) || (strcmp(argv[1], "*") == 0) && (t.tm_min == atoi(argv[2])) || (strcmp(argv[2], "*") == 0) && (t.tm_hour == atoi(argv[3])) || (strcmp(argv[3], "*") == 0)) {
 
@@ -235,7 +256,11 @@ if ((t.tm_sec == atoi(argv[1])) || (strcmp(argv[1], "*") == 0) && (t.tm_min == a
     }
     sleep(1);
 ```
--
+- `(t.tm_sec == atoi(argv[1])` dan `(strcmp(argv[1], "*") == 0)` berfungsi untuk mengecek apakah detik sudah sesuai dengan argumen yang diinput.
+- `(t.tm_min == atoi(argv[2])` dan `(strcmp(argv[2], "*") == 0)` berfungsi untuk mengecek apakah menit sudah sesuai dengan argumen yang diinput.
+- `t.tm_hour == atoi(argv[3])` dan `(strcmp(argv[3], "*") == 0)` berfungsi untuk mengecek apakah jam sudah sesuai dengan argumen yang diinput.
+- `execl("/bin/bash", "bash", argv[4], NULL)` berfungsi untuk menjalankan script bash.
+
 ## Isi folder.sh
 ```
 #!bin/bash
