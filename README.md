@@ -146,7 +146,7 @@ int main(int argc, char *argv[]) {
 #include <string.h>
 #include <time.h>
 ```
--
+- Diatas merupakan ***library*** yang digunakan untuk menunjang dan menjalankan program.
 ```
 int main(int argc, char *argv[]) {
   if (argc != 5) {
@@ -154,14 +154,16 @@ int main(int argc, char *argv[]) {
      exit(EXIT_FAILURE);
   }
 ```
--
+- ***Source Code*** diatas berfungsi untuk mendeklarasikan argumen berbentuk `int argc, char *argv[]`.
+- Pada soal ada 5 argumen yang diinputkan sehingga jika dalam kondisi `argc != 5`, hasil yang dikeluarkan adalah ***"Input Argumen Salah"***.
 ```
 if (!(*argv[1] == '*' || (atoi(argv[1]) >= 0 && atoi(argv[1]) <= 59))) {
     printf("Input Argumen Salah\n");
     return 1;
   }
 ```
--
+- `*argv[1] == '*'` berfungsi untuk mengecek input berupa ***"*"*** yang berarti semua variabel.
+- `(atoi(argv[1]) >= 0 && atoi(argv[1]) <= 59)` berfungsi untuk mengecek apakah 
 ```
 if (!(*argv[2] == '*' || (atoi(argv[2]) >= 0 && atoi(argv[2]) <= 59))) {
     printf("Input Argumen Salah\n");
