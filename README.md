@@ -76,7 +76,7 @@ if (!(*argv[1] == '*' || (atoi(argv[1]) >= 0 && atoi(argv[1]) <= 59))) {
     return 1;
   }
 ```
-- `*argv[1] == '*'` berfungsi untuk mengecek input berupa ***"*"*** yang berarti semua variabel.
+- `*argv[1] == '*'` berfungsi untuk mengecek input berupa `"*"` yang berarti semua variabel.
 - `(atoi(argv[1]) >= 0 && atoi(argv[1]) <= 59)` berfungsi untuk mengecek apakah `argv[1]` bernilai antara 0 - 59.
 - Jika tidak memenuhi, output yang dihasilkan adalah ***"Input Argumen Salah"***.
 ```
@@ -85,7 +85,7 @@ if (!(*argv[2] == '*' || (atoi(argv[2]) >= 0 && atoi(argv[2]) <= 59))) {
     return 1;
   }
 ```
-- `*argv[2] == '*'` berfungsi untuk mengecek input berupa ***"*"*** yang berarti semua variabel.
+- `*argv[2] == '*'` berfungsi untuk mengecek input berupa `"*"` yang berarti semua variabel.
 - `(atoi(argv[2]) >= 0 && atoi(argv[2]) <= 59)` berfungsi untuk mengecek apakah `argv[2]` bernilai antara 0 - 59.
 - Jika tidak memenuhi, output yang dihasilkan adalah ***"Input Argumen Salah"***.
 ```
@@ -94,7 +94,7 @@ if (!(*argv[3] == '*' || (atoi(argv[3]) >= 0 && atoi(argv[3]) <= 23))) {
     return 1;
   }
 ```
-- `*argv[3] == '*'` berfungsi untuk mengecek input berupa ***"*"*** yang berarti semua variabel.
+- `*argv[3] == '*'` berfungsi untuk mengecek input berupa `"*"` yang berarti semua variabel.
 - `(atoi(argv[3]) >= 0 && atoi(argv[3]) <= 59)` berfungsi untuk mengecek apakah `argv[1]` bernilai antara 0 - 59.
 - Jika tidak memenuhi, output yang dihasilkan adalah ***"Input Argumen Salah"***.
 ```
