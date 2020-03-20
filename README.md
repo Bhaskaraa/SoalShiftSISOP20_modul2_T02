@@ -186,6 +186,10 @@ mkdir anakonda
 ## Dokumentasi Penyelesaian Soal 1
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/1.png)
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/2.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/4.png)
+
+## Dokumentasi jika Input Salah
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/3.png)
 
 # Soal 2 - 
 Kiwa merasa telah jago dalam materi Sistem Operasi sehingga ia membuat beberapa program sebagai berikut.
