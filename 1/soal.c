@@ -15,6 +15,23 @@ int main(int argc, char *argv[]) {
      exit(EXIT_FAILURE);
   }
 
+  if (!(*argv[1] == '*' || (atoi(argv[1]) >= 0 && atoi(argv[1]) <= 59))) {
+    printf("Input Argumen Salah\n");
+    return 1;
+  }
+  if (!(*argv[2] == '*' || (atoi(argv[2]) >= 0 && atoi(argv[2]) <= 59))) {
+    printf("Input Argumen Salah\n");
+    return 1;
+  }
+  if (!(*argv[3] == '*' || (atoi(argv[3]) >= 0 && atoi(argv[3]) <= 23))) {
+    printf("Input Argumen Salah\n");
+    return 1;
+  }
+  if (access(argv[4], F_OK) == -1) {
+    printf("Input File tidak ada\n");
+    return 1;
+  }
+
   struct tm t;
   time_t tm;
 
@@ -50,7 +67,7 @@ int main(int argc, char *argv[]) {
 
    tm = time(NULL);
    t = *localtime(&tm);
-   
+
    a = atoi(argv[3]);
    b = atoi(argv[2]);
    c = atoi(argv[1]);
@@ -59,8 +76,8 @@ int main(int argc, char *argv[]) {
 
 	if (fork() == 0) {
 	   execl("/bin/bash", "bash", argv[4], NULL);
-	   sleep(1);
 	}
     }
+    sleep(1);
   }
 }
