@@ -9,7 +9,7 @@ Disusun oleh :
 - [Penyelesaian Soal 1](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#penyelesaian-soal-1)
 - [Dokumentasi Output yang Dihasilkan](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-1)
 
-## [Soal 2]()
+## [Soal 2](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-2---kiwa-shisooppu-mantappu)
 - [Penyelesaian Soal 2A]()
 - [Dokumentasi Output yang Dihasilkan 2A]()
 - [Penyelesaian Soal 2B]()
@@ -222,7 +222,7 @@ File penyelesaian soal ini dapat dilihat link berikut : [Source Code](https://gi
 ```
 - Diatas merupakan ***library*** yang digunakan untuk menunjang dan menjalankan program.
 
-##2A - Membuat Folder Khusus dan Folder Timestamp
+## 2A - Membuat Folder Khusus dan Folder Timestamp
 ```
 int main() {
 	pid_t anak_1, anak_2, anak_3;
