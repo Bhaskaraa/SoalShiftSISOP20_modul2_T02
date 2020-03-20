@@ -184,9 +184,9 @@ mkdir anakonda
 - Script bash ***folder.sh*** berisikan perintah untuk membuat direktori bernama ***anakonda***.
 
 ## Dokumentasi Penyelesaian Soal 1
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/4.png)
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/1.png)
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/2.png)
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/4.png)
 
 ## Dokumentasi jika Input Salah
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/1/3.png)
