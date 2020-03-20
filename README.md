@@ -221,24 +221,31 @@ File penyelesaian soal ini dapat dilihat link berikut : [Source Code](https://gi
 #include <stdio.h>
 #include <string.h>
 ```
--
+- Diatas merupakan ***library*** yang digunakan untuk menunjang dan menjalankan program.
 ```
-nt main() {
+int main() {
 	pid_t anak_1, anak_2, anak_3;
 	int status;
 	anak_1 = fork();
-	if (anak_1 < 0) {
-		exit(EXIT_FAILURE);
+```
+- `pid_t anak_1, anak_2, anak_3`
+- `int status`
+- `anak_1 = fork()`
+```
+if (anak_1 < 0) {
+exit(EXIT_FAILURE);
 	}
 ```
--
+- 
 ```
 if (anak_1 == 0) {
 		char *argv[] = {"mkdir", "-p", "khusus", NULL};
 	  	execv("/bin/mkdir", argv);
 	}
 ```
--
+- `(anak_1 == 0)`
+- `char *argv[] = {"mkdir", "-p", "khusus", NULL}`
+- `execv("/bin/mkdir", argv)`
 ```
 char str[50], url[100], file[100], save[100];
 	int a;
@@ -248,14 +255,20 @@ char str[50], url[100], file[100], save[100];
 	tm = localtime(&t);
 	strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", tm);
 ```
--
+- `char str[50], url[100], file[100], save[100]`
+- `time_t t, w`
+- `t = time(NULL)`
+- `struct tm *tm, *wm`
+- `tm = localtime(&t)`
+- `strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", tm)`
 ```
 if (anak_2== 0) {
 		char *argv[] = {"mkdir", "-p", str, NULL};
 	  	execv("/bin/mkdir", argv);
 	}
 ```
--
+- `char *argv[] = {"mkdir", "-p", str, NULL}`
+- `execv("/bin/mkdir", argv)`
 ```
 int i;
 	for (i=0;i<20;i++) {
@@ -271,12 +284,21 @@ int i;
 		if (fork()==0) execv("/usr/bin/wget", args);
 		sleep(1);
 ```
--
+- `for (i=0;i<20;i++)`
+- `w = time(NULL)`
+- `wm = localtime(&w)`
+- `a = (w%1000)+100`
+- `sprintf (url, "https://picsum.photos/%d", a)`
+- `strftime(file, 50, "%Y-%m-%d_%H:%M:%S", wm)`
+- `sprintf (save, "%s/%s", str, file)`
+- `char *args[] = {"wget", "-O", save, url, NULL}`
+- `strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", wm)`
+- `if (fork()==0) execv("/usr/bin/wget", args)`
 
 ## Dokumentasi Penyelesaian Soal 2
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/1.png)
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/2.png)
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/3.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/1.png) \
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/2.png) \
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/3.png) 
 
 # Soal 3 - Proses Fork dalam Program C untuk Permasalahan Multiprocessing
 Suatu hari Jaya mendapat tugas yang banyak dengan rincian sebagai berikut.
