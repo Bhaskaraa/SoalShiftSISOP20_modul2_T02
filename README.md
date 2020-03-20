@@ -385,7 +385,8 @@ int main(void) {
   pid_t anak_1, anak_2, anak_3, anak_4, anak_5, anak_6;
   int status;
 ```
-- Fungsi diatas merupakan fungsi utama dari program. ` pid_t anak_1, anak_2, anak_3, anak_4, anak_5, anak_6;` berfungsi untuk menyimpan PID ***(Parent ID)*** di masing-masing variabel child. `int status` berfungsi untuk deklarasi variabel status bertipe ***integer***.
+- Fungsi diatas merupakan fungsi utama dari program. ` pid_t anak_1, anak_2, anak_3, anak_4, anak_5, anak_6;` berfungsi untuk menyimpan PID ***(Parent ID)*** di masing-masing variabel child. 
+- `int status` berfungsi untuk deklarasi variabel status bertipe ***integer***.
 ```
 anak_1 = fork();
   if(anak_1 < 0){
@@ -405,7 +406,9 @@ anak_1 = fork();
     anak_2 = fork();
  }
 ```
-- Jika nilai ***PID*** sama dengan , proses berjalan. `char *argv[]={"mkdir", "-p", "indomie", NULL};` berfungsi untuk membuat direktori ***indomie*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi ***argv***. Fungsi `while((wait(&status)) > 0);` berfungsi sebagai ***delay*** untuk menunggu proses ***anak_1** selesai terlebih dahulu, setelah itu menjalankan proses ***anak_2***. 
+- Jika nilai ***PID*** sama dengan , proses berjalan. `char *argv[]={"mkdir", "-p", "indomie", NULL};` berfungsi untuk membuat direktori ***indomie*** dan perintah tersebut disimpan dalam variabel ***argv***. 
+- `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi ***argv***. 
+- `while((wait(&status)) > 0);` berfungsi sebagai ***delay*** untuk menunggu proses ***anak_1** selesai terlebih dahulu, setelah itu menjalankan proses ***anak_2***. 
 ```
 if(anak_2==0) {
     sleep(5);
@@ -413,7 +416,10 @@ if(anak_2==0) {
     execv("/bin/mkdir", argv);
  }
 ```
-- Jika ***PID*** proses ***anak_2*** bernilai sama dengan 0, maka proses dijalankan. `sleep(5);` berfungsi untuk memberikan ***delay*** selama 5 detik sebagai transisi dari proses 1 ke proses 2 sesuai dengan permintaan soal. `char *argv[]={"mkdir", "-p", "sedaap", NULL};` berfungsi untuk membuat direktori ***sedaap*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
+- Jika ***PID*** proses ***anak_2*** bernilai sama dengan 0, maka proses dijalankan. 
+- `sleep(5);` berfungsi untuk memberikan ***delay*** selama 5 detik sebagai transisi dari proses 1 ke proses 2 sesuai dengan permintaan soal. 
+- `char *argv[]={"mkdir", "-p", "sedaap", NULL};` berfungsi untuk membuat direktori ***sedaap*** dan perintah tersebut disimpan dalam variabel ***argv***. 
+- `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
 
 ## 3B - Meng-ekstrak File "jpg.zip"
 ```
@@ -422,7 +428,9 @@ if(anak_3==0) {
     execv("/usr/bin/unzip", argv);
  }
 ```
-- Jika ***PID*** proses ***anak_3*** bernilai sama dengan 0, maka proses dijalankan. `char *argv[]={"unzip", "-q", "jpg.zip", NULL};` berfungsi untuk meng-ekstrak file ***jpg.zip*** dan perintah tersebut disimpan dalam variabel ***argv***. `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
+- Jika ***PID*** proses ***anak_3*** bernilai sama dengan 0, maka proses dijalankan. 
+- `char *argv[]={"unzip", "-q", "jpg.zip", NULL};` berfungsi untuk meng-ekstrak file ***jpg.zip*** dan perintah tersebut disimpan dalam variabel ***argv***. 
+- `execv("/bin/mkdir", argv);` berfungsi untuk mengeksekusi perintah dalam ***argv***.
 
 ## Dokumentasi Penyelesaian Soal 3A dan 3B
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/1.png)
@@ -433,13 +441,15 @@ if(anak_4==0) {
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-type", "f", "-name", "*", "-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/sedaap", "{}", "+", (char *) NULL);
   }
 ```
-- Jika ***PID*** proses ***anak_4*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-type", "f", "-name", "*"` berfungsi untuk mencari semua yang bertipe file dengan semua nama di direktori ***/home/bhaskarajd/Modul2/3/jpg*** dan `"-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/sedaap", "{}", "+", (char *) NULL);` berfungsi untuk memindahkannya ke direktori ***/home/bhaskarajd/Modul2/3/sedaap***.
+- Jika ***PID*** proses ***anak_4*** bernilai sama dengan 0, maka proses dijalankan. 
+- `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-type", "f", "-name", "*"` berfungsi untuk mencari semua yang bertipe file dengan semua nama di direktori ***/home/bhaskarajd/Modul2/3/jpg*** dan `"-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/sedaap", "{}", "+", (char *) NULL);` berfungsi untuk memindahkannya ke direktori ***/home/bhaskarajd/Modul2/3/sedaap***.
 ```
 if(anak_5==0) {
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-mindepth", "1", "-type", "d", "-name", "*", "-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/indomie", "{}", "+", (char *) NULL);
   }
 ```
-- Sama seperti proses sebelumnya, jika ***PID*** proses ***anak_5*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dengan semua nama di ***/home/bhaskarajd/Modul2/3/jpg*** dan `"-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/indomie", "{}", "+", (char *) NULL);` berfungsi untuk memindahkannya ke direktori ***/home/bhaskarajd/Modul2/3/indomie***.
+- Sama seperti proses sebelumnya, jika ***PID*** proses ***anak_5*** bernilai sama dengan 0, maka proses dijalankan.
+- `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/jpg", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dengan semua nama di ***/home/bhaskarajd/Modul2/3/jpg*** dan `"-exec", "mv", "-t", "/home/bhaskarajd/Modul2/3/indomie", "{}", "+", (char *) NULL);` berfungsi untuk memindahkannya ke direktori ***/home/bhaskarajd/Modul2/3/indomie***.
 
 ## Dokumentasi Penyelesaian Soal 3C
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/4.png)
@@ -453,7 +463,8 @@ if(anak_6==0) {
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*", "-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);
   }
 ```  
-- Jika ***PID*** proses ***anak_6*** bernilai sama dengan 0, maka proses dijalankan. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba1.txt*** di semua direktori yang ada.
+- Jika ***PID*** proses ***anak_6*** bernilai sama dengan 0, maka proses dijalankan. 
+- `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba1.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba1.txt*** di semua direktori yang ada.
 ```
   else {
     while((wait(&status))>0);
@@ -461,7 +472,8 @@ if(anak_6==0) {
     execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*", "-exec", "sh", "-c", "for d; do touch $d/coba2.txt; done", "{}", "+", (char *) NULL);
   }
 ```
-- `sleep(3);` berfungsi sebagai ***delay*** selama 3 detik sesuai dengan permintaan soal. `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba2.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba2.txt*** di semua direktori yang ada.
+- `sleep(3);` berfungsi sebagai ***delay*** selama 3 detik sesuai dengan permintaan soal. 
+- `execl("/usr/bin/find", "find", "/home/bhaskarajd/Modul2/3/indomie", "-mindepth", "1", "-type", "d", "-name", "*"` berfungsi untuk mencari semua yang bertipe direktori atau folder dalam semua nama di ***/home/bhaskarajd/Modul2/3/indomie*** dan `"-exec", "sh", "-c", "for d; do touch $d/coba2.txt; done", "{}", "+", (char *) NULL);` berfungsi untuk membuat file ***coba2.txt*** di semua direktori yang ada.
 
 ## Dokumentasi Penyelesaian Soal 3D
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/3/3.png)
