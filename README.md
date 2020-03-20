@@ -10,10 +10,10 @@ Disusun oleh :
 - [Dokumentasi Output yang Dihasilkan](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-1)
 
 ## [Soal 2](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-2---kiwa-shisooppu-mantappu)
-- [Penyelesaian Soal 2A]()
-- [Dokumentasi Output yang Dihasilkan 2A]()
-- [Penyelesaian Soal 2B]()
-- [Dokumentasi Output yang Dihasilkan 2B]()
+- [Penyelesaian Soal 2A](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#soal-2---kiwa-shisooppu-mantappu)
+- [Dokumentasi Output yang Dihasilkan 2A](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-2a)
+- [Penyelesaian Soal 2B](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#2b---mengunduh-gambar-dan-mengisi-folder-timestamp)
+- [Dokumentasi Output yang Dihasilkan 2B](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02#dokumentasi-penyelesaian-soal-2b)
 - [Penyelesaian Soal 2C]()
 - [Dokumentasi Output yang Dihasilkan 2C]()
 - [Penyelesaian Soal 2D]()
@@ -271,7 +271,7 @@ if (anak_2== 0) {
 - `execv("/bin/mkdir", argv)` berfungsi untuk menjalankan perintah yang ada dalam variabel ***argv***.
 
 ## Dokumentasi Penyelesaian Soal 2A
-![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/1.png) \
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/1.png) 
 ![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/2.png) 
 
 ## 2B - Mengunduh Gambar dan Mengisi Folder Timestamp
