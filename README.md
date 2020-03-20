@@ -208,14 +208,75 @@ Hint yang diberikan :
 - Gunakan fitur picsum.photos untuk mendapatkan gambar dengan ukuran tertentu 
 - Epoch Unix bisa didapatkan dari time() 
 
-File penyelesaian soal ini dapat dilihat link berikut : [Source Code]()
+File penyelesaian soal ini dapat dilihat link berikut : [Source Code](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/2/soal2.c)
 
-Untuk menyelesaikan persoalan nomor 2, kami menggunakan syntax code sebagai berikut.
-```
-```
 ## Penyelesaian Soal 2
+```
+
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <wait.h>
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+```
+-
+```
+nt main() {
+	pid_t anak_1, anak_2, anak_3;
+	int status;
+	anak_1 = fork();
+	if (anak_1 < 0) {
+		exit(EXIT_FAILURE);
+	}
+```
+-
+```
+if (anak_1 == 0) {
+		char *argv[] = {"mkdir", "-p", "khusus", NULL};
+	  	execv("/bin/mkdir", argv);
+	}
+```
+-
+```
+char str[50], url[100], file[100], save[100];
+	int a;
+	time_t t, w;
+	t = time(NULL);
+	struct tm *tm, *wm;
+	tm = localtime(&t);
+	strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", tm);
+```
+-
+```
+if (anak_2== 0) {
+		char *argv[] = {"mkdir", "-p", str, NULL};
+	  	execv("/bin/mkdir", argv);
+	}
+```
+-
+```
+int i;
+	for (i=0;i<20;i++) {
+		w = time(NULL);
+		wm = localtime(&w);
+		a = (w%1000)+100;
+		sprintf (url, "https://picsum.photos/%d", a);
+		strftime(file, 50, "%Y-%m-%d_%H:%M:%S", wm);
+		sprintf (save, "%s/%s", str, file);
+		char *args[] = {"wget", "-O", save, url, NULL};
+
+		strftime(str, 50, "khusus/%Y-%m-%d_%H:%M:%S", wm);
+		if (fork()==0) execv("/usr/bin/wget", args);
+		sleep(1);
+```
+-
 
 ## Dokumentasi Penyelesaian Soal 2
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/1.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/2.png)
+![](https://github.com/Bhaskaraa/SoalShiftSISOP20_modul2_T02/blob/master/Screenshoot/2/3.png)
 
 # Soal 3 - Proses Fork dalam Program C untuk Permasalahan Multiprocessing
 Suatu hari Jaya mendapat tugas yang banyak dengan rincian sebagai berikut.
